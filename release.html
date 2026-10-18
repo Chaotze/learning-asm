@@ -138,7 +138,6 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    /* 隐藏 / 显示逻辑 */
     .style-harness { display: block; }
     .style-minimal { display: none; }
     [data-style="minimal"] .style-harness { display: none; }
@@ -204,10 +203,7 @@
       transition: background 0.3s;
     }
 
-    .harness-bar .dots {
-      display: flex;
-      gap: 0.4rem;
-    }
+    .harness-bar .dots { display: flex; gap: 0.4rem; }
 
     .harness-bar .dots span {
       width: 13px;
@@ -229,9 +225,7 @@
       letter-spacing: 0.02em;
     }
 
-    .harness-bar .title .path {
-      color: var(--accent);
-    }
+    .harness-bar .title .path { color: var(--accent); }
 
     .harness-bar .status-dot {
       margin-left: auto;
@@ -258,9 +252,7 @@
       50% { opacity: 0.35; }
     }
 
-    .harness-body {
-      padding: 1.75rem;
-    }
+    .harness-body { padding: 1.75rem; }
 
     /* ============================================================
        Minimal 风格专属样式
@@ -389,10 +381,7 @@
       transition: color 0.3s;
     }
 
-    .header-left h1 .prompt {
-      color: var(--accent);
-      font-weight: 700;
-    }
+    .header-left h1 .prompt { color: var(--accent); font-weight: 700; }
 
     .header-left .desc {
       font-family: var(--font-mono);
@@ -425,7 +414,7 @@
     }
 
     .token-box .lock { color: var(--text-faint); }
-  
+
     .token-box svg {
       width: 13px; height: 13px;
       color: var(--text-faint);
@@ -558,7 +547,7 @@
     }
 
     .file-list {
-      max-height: 180px;
+      max-height: 200px;
       overflow-y: auto;
       padding: 0.5rem;
     }
@@ -594,6 +583,13 @@
       color: var(--text);
       word-break: break-all;
       transition: color 0.3s;
+    }
+
+    .file-row .fname .renamed {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--text-faint);
+      margin-top: 0.1rem;
     }
 
     .file-row .fsize {
@@ -654,10 +650,6 @@
       transition: width 0.3s ease;
     }
 
-    [data-style="minimal"] .progress-fill {
-      background: var(--accent);
-    }
-
     /* 表单 */
     .form-grid {
       display: grid;
@@ -709,9 +701,7 @@
       transition: all 0.2s;
     }
 
-    [data-style="minimal"] .field input {
-      border-radius: 10px;
-    }
+    [data-style="minimal"] .field input { border-radius: 10px; }
 
     .field input:focus {
       border-color: var(--accent);
@@ -795,9 +785,7 @@
       border-color: var(--border);
     }
 
-    [data-style="minimal"] .btn-ghost {
-      border: 1px solid var(--border);
-    }
+    [data-style="minimal"] .btn-ghost { border: 1px solid var(--border); }
 
     .btn-ghost:hover:not(:disabled) {
       background: var(--surface-2);
@@ -805,10 +793,7 @@
       border-color: var(--border-hover);
     }
 
-    .btn-ghost:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
+    .btn-ghost:disabled { opacity: 0.4; cursor: not-allowed; }
 
     .size-info {
       font-family: var(--font-mono);
@@ -822,7 +807,6 @@
       font-size: 0.72rem;
     }
 
-    /* 状态 */
     .status {
       margin-top: 1.2rem;
       padding: 0.85rem 1rem;
@@ -920,9 +904,7 @@
       display: inline-block;
     }
 
-    @keyframes rotate {
-      to { transform: rotate(360deg); }
-    }
+    @keyframes rotate { to { transform: rotate(360deg); } }
 
     /* ============================================================
        响应式
@@ -945,7 +927,6 @@
 </head>
 <body>
 
-  <!-- 主题控制按钮 -->
   <div class="theme-controls">
     <button id="styleToggle" title="切换风格" aria-label="切换风格">🎨</button>
     <button id="themeToggle" title="切换深浅模式" aria-label="切换深浅模式">🌙</button>
@@ -964,7 +945,7 @@
       <div class="header">
         <div class="header-left">
           <h1><span class="prompt">$</span> gitlab package upload</h1>
-          <div class="desc">自动筛选目录下的 <span class="k">.EXE</span> 和 <span class="k">.OBJ</span> ，按文件名 <span class="k">倒序</span> 上传。包名默认取目录名。</div>
+          <div class="desc">自动筛选目录下的 <span class="k">.EXE</span>，按文件名 <span class="k">倒序</span> 上传。包名默认取目录名。</div>
         </div>
         <div class="token-box">
           <!-- <span class="lock">🔑</span> -->
@@ -978,7 +959,7 @@
       <div class="dropzone" id="dropZoneH">
         <span class="dz-icon">📁</span>
         <div class="dz-title">拖拽文件夹至此，或点击选择</div>
-        <div class="dz-hint">只扫描目录下的 <code>.EXE</code> 和 <code>.OBJ</code> · 按文件名 <code>倒序</code> 上传</div>
+        <div class="dz-hint">只扫描目录下的 <code>.EXE</code> · 按文件名 <code>倒序</code> 上传</div>
         <input type="file" id="folderInputH" webkitdirectory directory multiple style="display: none;">
       </div>
 
@@ -1026,7 +1007,7 @@
       </div>
 
       <div class="status" id="statusMsgH" style="display: none;">
-        <span class="ico">ℹ️</span><span class="txt">就绪</span>
+        <span class="txt">就绪</span>
       </div>
     </div>
 
@@ -1040,9 +1021,6 @@
        Minimal 风格
        ============================================================ -->
   <div class="minimal style-minimal">
-      <!-- <div class="mark"><span class="dot"></span> gitlab upload</div>
-      </div> -->
-
     <div class="main">
       <div class="head">
         <div class="top">
@@ -1054,13 +1032,13 @@
             <input type="password" id="tokenInputM" placeholder="GITLAB_TOKEN" spellcheck="false">
           </div>
         </div>
-        <p>自动筛选目录下的 <em>.EXE</em> 和 <em>.OBJ</em>，按文件名 <strong>倒序</strong> 上传。包名默认取目录名。</p>
+        <p>自动筛选目录下的 <em>.EXE</em>，按文件名 <strong>倒序</strong> 上传。包名默认取目录名。</p>
       </div>
 
       <div class="dropzone" id="dropZoneM">
         <span class="dz-icon">📂</span>
         <div class="dz-title">拖拽文件夹至此，或点击选择</div>
-        <div class="dz-hint">只扫描目录下的 <code>.EXE</code> 和 <code>.OBJ</code> · 按文件名 <code>倒序</code> 上传</div>
+        <div class="dz-hint">只扫描目录下的 <code>.EXE</code> · 按文件名 <code>倒序</code> 上传</div>
         <input type="file" id="folderInputM" webkitdirectory directory multiple style="display:none">
       </div>
 
@@ -1106,16 +1084,13 @@
       </div>
 
       <div class="status" id="statusMsgM" style="display:none;">
-        <span class="ico">ℹ️</span><span class="txt">就绪</span>
+        <span class="txt">就绪</span>
       </div>
     </div>
   </div>
 
   <script>
     (function() {
-      /* ============================================================
-         随机选择初始风格（每次随机）
-         ============================================================ */
       const STYLES = ['harness', 'minimal'];
       const initialStyle = STYLES[Math.floor(Math.random() * STYLES.length)];
 
@@ -1139,21 +1114,18 @@
         themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
       }
 
-      // 初始化：随机风格 + 从 localStorage 读取主题（默认跟随系统）
       const storedTheme = localStorage.getItem('gl-theme');
       const initialTheme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
       applyStyle(initialStyle);
       applyTheme(initialTheme);
 
-      // 深浅切换按钮（唯一监听器）
       themeToggle.addEventListener('click', () => {
         const next = getTheme() === 'dark' ? 'light' : 'dark';
         applyTheme(next);
         localStorage.setItem('gl-theme', next);
       });
 
-      // 跟随系统（未手动选择时）
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
         if (!localStorage.getItem('gl-theme')) {
           applyTheme(e.matches ? 'dark' : 'light');
@@ -1182,8 +1154,56 @@
       }
 
       function isTarget(name) {
+        return name.toLowerCase().endsWith('.exe');
+      }
+
+      function isAsm(name) {
         const l = name.toLowerCase();
-        return l.endsWith('.exe') || l.endsWith('.obj');
+        return l.endsWith('.asm') || l.endsWith('.s');
+      }
+
+      function stripAsmExt(name) {
+        return name.replace(/\.(asm|s)$/i, '');
+      }
+
+      function isShortName(name) {
+        return /~[0-9]+\.exe$/i.test(name);
+      }
+
+      function shortNamePrefix(name) {
+        const m = name.match(/^(.*?)~\d+\.exe$/i);
+        return m ? m[1].toLowerCase() : '';
+      }
+
+      function resolveShortName(shortName, asmFiles) {
+        const prefix = shortNamePrefix(shortName);
+        if (!prefix) return null;
+        const cands = asmFiles.filter(a => {
+          const base = stripAsmExt(a).toLowerCase();
+          return base.startsWith(prefix);
+        });
+        if (cands.length === 0) return null;
+        cands.sort((a, b) => a.length - b.length);
+        return cands[0];
+      }
+
+      function correctedFilePart(baseName, asmFiles) {
+        if (isShortName(baseName)) {
+          const src = resolveShortName(baseName, asmFiles);
+          if (src) {
+            const stem = stripAsmExt(src).toUpperCase();
+            return stem + '.EXE';
+          }
+        }
+        return baseName;
+      }
+
+      function buildRemoteName(baseName, dirName, asmFiles) {
+        const corrected = correctedFilePart(baseName, asmFiles);
+        if (isAllCaps(corrected)) {
+          return dirName.toUpperCase() + '_' + corrected;
+        }
+        return dirName + '_' + corrected;
       }
 
       function compareDesc(a, b) {
@@ -1216,16 +1236,14 @@
 
         const state = {
           allFiles: [],
+          asmFiles: [],
           folderName: '',
           isUploading: false,
         };
 
-        // ---------- 状态提示 ----------
-        function setStatus(text, type = 'info', ico = 'ℹ️') {
+        function setStatus(text, type = 'info') {
           statusMsg.style.display = 'flex';
           statusMsg.className = 'status ' + type;
-          // statusMsg.querySelector('.ico').textContent = ico;
-          statusMsg.querySelector('.ico').textContent = '';
           statusMsg.querySelector('.txt').textContent = text;
         }
 
@@ -1233,7 +1251,6 @@
           statusMsg.style.display = 'none';
         }
 
-        // ---------- 渲染 ----------
         function renderFileList() {
           if (state.allFiles.length === 0) {
             filePanel.classList.remove('visible');
@@ -1247,15 +1264,17 @@
           fileBadge.textContent = state.allFiles.length + ' 个';
 
           const total = state.allFiles.reduce((a, f) => a + f.file.size, 0);
-          sizeInfo.textContent = suffix === 'H'
-            ? `总大小 ${formatSize(total)}`
-            : formatSize(total);
+          sizeInfo.textContent = `总大小 ${formatSize(total)}`;
 
           fileList.innerHTML = state.allFiles.map((item, i) => {
-            const icon = item.baseName.toLowerCase().endsWith('.exe') ? '⚙️' : '📦';
+            const corrected = correctedFilePart(item.baseName, state.asmFiles);
+            const renamed = corrected !== item.baseName;
+            const renameLine = renamed
+              ? `<span class="renamed">&nbsp;-> ${corrected}</span>`
+              : '';
             return `<div class="file-row">
-              <span class="fi">${icon}</span>
-              <span class="fname">${item.baseName}</span>
+              <span class="fi">⚙️</span>
+              <span class="fname">${item.baseName}${renameLine}</span>
               <span class="fsize">${formatSize(item.file.size)}</span>
               <button class="del" data-i="${i}" title="移除">✕</button>
             </div>`;
@@ -1269,6 +1288,7 @@
               state.allFiles.splice(i, 1);
               if (state.allFiles.length === 0) {
                 state.folderName = '';
+                state.asmFiles = [];
                 pkgNameInput.value = '';
               }
               renderFileList();
@@ -1279,7 +1299,6 @@
           updateUploadBtn();
         }
 
-        // ---------- 默认参数 ----------
         function applyDefaults() {
           if (state.allFiles.length === 0) return;
 
@@ -1297,37 +1316,34 @@
           }
         }
 
-        // ---------- 处理文件 ----------
-        function handleFiles(fileListLike) {
+        // entries: [{file, baseName, dirName}]
+        function handleEntries(entries) {
           if (state.isUploading) {
-            setStatus('正在上传中，请稍候...', 'info', '⏳');
+            setStatus('正在上传中，请稍候...', 'info');
             return;
           }
 
-          const arr = Array.from(fileListLike);
           const files = [];
+          const asmFiles = [];
           let detectedFolder = '';
 
-          for (const file of arr) {
-            const rp = file.webkitRelativePath || file.name;
-            const n = rp.replace(/\\/g, '/');
-            const parts = n.split('/').filter(p => p.length > 0);
+          for (const it of entries) {
+            const baseName = it.baseName || it.file.name;
+            const dirName = it.dirName || '';
+            if (!detectedFolder && dirName) detectedFolder = dirName;
 
-            if (!detectedFolder && parts.length >= 1) {
-              detectedFolder = parts[0];
+            if (isAsm(baseName)) {
+              asmFiles.push(baseName);
+              continue;
             }
-
-            if (parts.length !== 2) continue;
-
-            const baseName = parts[1];
             if (!isTarget(baseName)) continue;
-
-            files.push({ file, baseName, dirName: parts[0] });
+            files.push({ file: it.file, baseName, dirName });
           }
 
           if (files.length === 0) {
-            setStatus('文件夹内未找到 .EXE 或 .OBJ 文件', 'error', '🔍');
+            setStatus('文件夹内未找到 .EXE 文件', 'error');
             state.allFiles = [];
+            state.asmFiles = [];
             state.folderName = '';
             renderFileList();
             return;
@@ -1336,48 +1352,69 @@
           files.sort(compareDesc);
 
           state.allFiles = files;
+          state.asmFiles = asmFiles;
           state.folderName = detectedFolder;
           renderFileList();
           applyDefaults();
           clearStatus();
-          setStatus(`在 ${detectedFolder} 内找到 ${files.length} 个文件`, 'success', '✅');
+          const renamedCount = files.filter(f =>
+            correctedFilePart(f.baseName, asmFiles) !== f.baseName
+          ).length;
+          const extra = renamedCount > 0 ? `，其中 ${renamedCount} 个 8.3 文件名已还原` : '';
+          setStatus(`在 ${detectedFolder} 内找到 ${files.length} 个 .EXE 文件${extra}`, 'success');
           syncUIsFrom(suffix);
         }
 
-        // ---------- 上传 ----------
+        function handleFileList(fileListLike) {
+          const arr = Array.from(fileListLike);
+          const entries = [];
+          for (const file of arr) {
+            const rp = file.webkitRelativePath || file.name;
+            const n = rp.replace(/\\/g, '/');
+            const parts = n.split('/').filter(p => p.length > 0);
+            if (parts.length !== 2) continue;
+            entries.push({
+              file,
+              baseName: parts[1],
+              dirName: parts[0],
+            });
+          }
+          handleEntries(entries);
+        }
+
         async function uploadAll() {
           if (state.allFiles.length === 0) {
-            setStatus('没有可上传的文件', 'error', '📂');
+            setStatus('没有可上传的文件', 'error');
             return;
           }
 
           const token = tokenInput.value.trim();
           if (!token) {
-            setStatus('请填写 GITLAB_TOKEN', 'error', '🔑');
+            setStatus('请填写 GITLAB_TOKEN', 'error');
             return;
           }
 
           let baseUrl = gitlabUrlInput.value.trim().replace(/\/+$/, '');
           if (!baseUrl) {
-            setStatus('GitLab 地址不能为空', 'error', '🌐');
+            setStatus('GitLab 地址不能为空', 'error');
             return;
           }
 
           const projectId = projectIdInput.value.trim();
           if (!projectId) {
-            setStatus('项目 ID 不能为空', 'error', '🆔');
+            setStatus('项目 ID 不能为空', 'error');
             return;
           }
 
           let pkgName = sanitizePkgName(pkgNameInput.value.trim());
           if (!pkgName) {
-            setStatus('包名不能为空（净化后）', 'error', '📦');
+            setStatus('包名不能为空（净化后）', 'error');
             return;
           }
 
           const pkgVersion = pkgVersionInput.value.trim();
           if (!pkgVersion) {
-            setStatus('版本号不能为空', 'error', '📅');
+            setStatus('版本号不能为空', 'error');
             return;
           }
 
@@ -1395,14 +1432,12 @@
             const item = state.allFiles[i];
             const { file, baseName, dirName } = item;
 
-            let remoteName = isAllCaps(baseName)
-              ? dirName.toUpperCase() + '_' + baseName
-              : dirName + '_' + baseName;
+            const remoteName = buildRemoteName(baseName, dirName, state.asmFiles);
 
-            const url = `${baseUrl}/api/v4/projects/${projectId}/packages/generic/${encodeURIComponent(pkgName)}/${encodeURIComponent(pkgVersion)}/${encodeURIComponent(remoteName)}`;
+            const url = `${baseUrl}/api/v4/projects/${encodeURIComponent(projectId)}/packages/generic/${encodeURIComponent(pkgName)}/${encodeURIComponent(pkgVersion)}/${encodeURIComponent(remoteName)}`;
 
             progressFill.style.width = `${(i / total) * 100}%`;
-            progressText.textContent = `${i} / ${total}  (${baseName})`;
+            progressText.textContent = `${i} / ${total}  (${remoteName})`;
 
             try {
               const res = await fetch(url, {
@@ -1416,11 +1451,11 @@
               } else {
                 fail++;
                 const t = await res.text().catch(() => '');
-                errors.push(`${baseName}: HTTP ${res.status}${t ? ' - ' + t.slice(0, 120) : ''}`);
+                errors.push(`${remoteName}: HTTP ${res.status}${t ? ' - ' + t.slice(0, 120) : ''}`);
               }
             } catch (e) {
               fail++;
-              errors.push(`${baseName}: ${e.message}`);
+              errors.push(`${remoteName}: ${e.message}`);
             }
 
             progressFill.style.width = `${((i + 1) / total) * 100}%`;
@@ -1433,10 +1468,10 @@
           updateUploadBtn();
 
           if (fail === 0) {
-            setStatus(`全部上传成功，共 ${ok} 个文件`, 'success', '🎉');
+            setStatus(`全部上传成功，共 ${ok} 个文件`, 'success');
           } else {
             const d = errors.slice(0, 3).join('; ') + (errors.length > 3 ? '...' : '');
-            setStatus(`上传完成：成功 ${ok}，失败 ${fail}。${d}`, 'error', '⚠️');
+            setStatus(`上传完成：成功 ${ok}，失败 ${fail}。${d}`, 'error');
           }
 
           setTimeout(() => progressPanel.classList.remove('visible'), 3000);
@@ -1451,6 +1486,7 @@
         function resetAll() {
           if (state.isUploading) return;
           state.allFiles = [];
+          state.asmFiles = [];
           state.folderName = '';
           renderFileList();
           gitlabUrlInput.value = 'https://git.tongji.edu.cn';
@@ -1464,7 +1500,6 @@
           syncUIsFrom(suffix);
         }
 
-        // ---------- 拖拽 ----------
         dropZone.addEventListener('dragover', e => {
           e.preventDefault();
           e.stopPropagation();
@@ -1483,19 +1518,19 @@
           dropZone.classList.remove('dragover');
 
           if (state.isUploading) {
-            setStatus('正在上传中，请稍候...', 'info', '⏳');
+            setStatus('正在上传中，请稍候...', 'info');
             return;
           }
 
           const items = e.dataTransfer.items;
           if (!items || items.length === 0) {
-            setStatus('未能获取拖拽内容，请点击选择文件夹', 'error', '📁');
+            setStatus('未能获取拖拽内容，请点击选择文件夹', 'error');
             return;
           }
 
           const entries = [];
           for (let i = 0; i < items.length; i++) {
-            const entry = items[i].webkitGetAsEntry();
+            const entry = items[i].webkitGetAsEntry && items[i].webkitGetAsEntry();
             if (entry) entries.push(entry);
           }
 
@@ -1503,30 +1538,86 @@
           if (!dirEntry) {
             const fileEntries = entries.filter(en => en.isFile);
             if (fileEntries.length > 0) {
-              setStatus('请拖入一个文件夹（而非单独文件）', 'error', '📁');
+              setStatus('请拖入一个文件夹（而非单独文件）', 'error');
             } else {
-              setStatus('未能识别拖拽内容，请点击选择文件夹', 'error', '📁');
+              setStatus('未能识别拖拽内容，请点击选择文件夹', 'error');
             }
             return;
           }
 
+          // 优先使用 File System Access API（Edge/Chrome 支持），避免 readEntries 的已知 bug
+          const handle = (items[0] && typeof items[0].getAsFileSystemHandle === 'function')
+            ? items[0].getAsFileSystemHandle()
+            : null;
+
+          if (handle && typeof handle.then === 'function') {
+            handle
+              .then(fsHandle => {
+                if (fsHandle && fsHandle.kind === 'directory') {
+                  return walkDirectoryHandle(fsHandle);
+                }
+                return null;
+              })
+              .then(files => {
+                if (files && files.length > 0) {
+                  handleEntries(files);
+                } else {
+                  fallbackWebkit(dirEntry);
+                }
+              })
+              .catch(() => fallbackWebkit(dirEntry));
+          } else {
+            fallbackWebkit(dirEntry);
+          }
+        });
+
+        // File System Access API 遍历目录
+        async function walkDirectoryHandle(dirHandle) {
+          const results = [];
+          const dirName = dirHandle.name;
+
+          async function walk(handle) {
+            for await (const entry of handle.values()) {
+              if (entry.kind === 'file') {
+                try {
+                  const file = await entry.getFile();
+                  results.push({
+                    file,
+                    baseName: file.name,
+                    dirName,
+                  });
+                } catch (_) {}
+              } else if (entry.kind === 'directory') {
+                await walk(entry);
+              }
+            }
+          }
+
+          await walk(dirHandle);
+          return results;
+        }
+
+        // webkitGetAsEntry 回退路径：readEntries 加重试容错
+        function fallbackWebkit(dirEntry) {
           collectRootFiles(dirEntry)
             .then(files => {
               if (files.length === 0) {
-                setStatus('文件夹内未找到 .EXE 或 .OBJ 文件', 'error', '🔍');
+                setStatus('文件夹内未找到 .EXE 文件', 'error');
                 return;
               }
-              handleFiles(files);
+              handleEntries(files);
             })
             .catch(err => {
-              setStatus('读取文件夹失败：' + err.message, 'error', '💥');
+              setStatus('读取文件夹失败：' + err.message, 'error');
             });
-        });
+        }
 
         function collectRootFiles(dirEntry) {
-          return new Promise((resolve, reject) => {
-            const reader = dirEntry.createReader();
+          return new Promise((resolve) => {
             const results = [];
+            let reader = dirEntry.createReader();
+            let retries = 0;
+            const MAX_RETRIES = 3;
 
             const readBatch = () => {
               reader.readEntries(async (entries) => {
@@ -1547,7 +1638,11 @@
                             configurable: true,
                           });
                         } catch (_) {}
-                        results.push(file);
+                        results.push({
+                          file,
+                          baseName: file.name,
+                          dirName: folder,
+                        });
                         res();
                       }, () => res());
                     });
@@ -1555,7 +1650,18 @@
                 }
 
                 readBatch();
-              }, reject);
+              }, (err) => {
+                // 不直接 reject：重试，仍失败则返回已收集部分
+                if (retries < MAX_RETRIES) {
+                  retries++;
+                  try {
+                    reader = dirEntry.createReader();
+                  } catch (_) {}
+                  setTimeout(readBatch, 50 * retries);
+                } else {
+                  resolve(results);
+                }
+              });
             };
 
             readBatch();
@@ -1569,7 +1675,7 @@
 
         folderInput.addEventListener('change', e => {
           if (e.target.files.length > 0) {
-            handleFiles(e.target.files);
+            handleFileList(e.target.files);
           }
           folderInput.value = '';
         });
@@ -1578,18 +1684,17 @@
         resetBtn.addEventListener('click', resetAll);
         tokenInput.addEventListener('input', updateUploadBtn);
 
-        // 初始化版本号
         (function init() {
           const d = new Date();
           pkgVersionInput.value = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
           updateUploadBtn();
         })();
 
-        // 暴露内部状态给同步用
         return {
           suffix,
           state,
-          handleFiles,
+          handleEntries,
+          handleFileList,
           renderFileList,
           updateUploadBtn,
           resetAll,
@@ -1599,9 +1704,6 @@
         };
       }
 
-      /* ============================================================
-         创建两套 UI 控制器
-         ============================================================ */
       const ctrlH = createController('H');
       const ctrlM = createController('M');
       const controllers = { H: ctrlH, M: ctrlM };
@@ -1617,12 +1719,11 @@
         const toCtrl = controllers[toSuffix];
         if (!fromCtrl || !toCtrl) return;
 
-        // 同步文件列表
         toCtrl.state.allFiles = fromCtrl.state.allFiles.slice();
+        toCtrl.state.asmFiles = fromCtrl.state.asmFiles.slice();
         toCtrl.state.folderName = fromCtrl.state.folderName;
         toCtrl.renderFileList();
 
-        // 同步表单值
         ['gitlabUrl', 'projectId', 'pkgName', 'pkgVersion', 'tokenInput'].forEach(base => {
           const fromEl = document.getElementById(base + fromSuffix);
           const toEl = document.getElementById(base + toSuffix);
@@ -1631,21 +1732,18 @@
           }
         });
 
-        // 同步状态提示
         const fromStatus = document.getElementById('statusMsg' + fromSuffix);
         const toStatus = document.getElementById('statusMsg' + toSuffix);
         if (fromStatus && toStatus) {
           if (fromStatus.style.display !== 'none') {
             toStatus.style.display = fromStatus.style.display;
             toStatus.className = fromStatus.className;
-            toStatus.querySelector('.ico').textContent = fromStatus.querySelector('.ico').textContent;
             toStatus.querySelector('.txt').textContent = fromStatus.querySelector('.txt').textContent;
           } else {
             toStatus.style.display = 'none';
           }
         }
 
-        // 同步进度面板
         const fromProgress = document.getElementById('progressPanel' + fromSuffix);
         const toProgress = document.getElementById('progressPanel' + toSuffix);
         if (fromProgress && toProgress) {
@@ -1669,7 +1767,6 @@
         toCtrl.updateUploadBtn();
       }
 
-      // 供 controller 内部调用：从当前 controller 同步到另一侧
       function syncUIsFrom(fromSuffix) {
         syncUIs(fromSuffix, fromSuffix === 'H' ? 'M' : 'H');
       }
@@ -1680,12 +1777,8 @@
       styleToggle.addEventListener('click', () => {
         const current = getStyle();
         const next = current === 'harness' ? 'minimal' : 'harness';
-
-        // 先把当前可见 UI 的状态同步到目标 UI
         const currentSuffix = current === 'harness' ? 'H' : 'M';
         syncUIs(currentSuffix, currentSuffix === 'H' ? 'M' : 'H');
-
-        // 再切换风格
         applyStyle(next);
       });
 
